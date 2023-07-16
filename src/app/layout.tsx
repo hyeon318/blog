@@ -5,8 +5,6 @@ import {Open_Sans} from 'next/font/google'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 
-const inter = Inter({ subsets: ['latin'] })
-
 const sans = Open_Sans({subsets: ['latin']})
 
 export const metadata = {
@@ -17,18 +15,15 @@ export const metadata = {
   }
 }
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function RootLayout({children,}: {children: React.ReactNode}) {
   return (
     <html lang="en" className={sans.className}>
       {/* mx-auto : content 중앙 정렬 */}
       <body className="flex flex-col w-full max-w-screen-2xl mx-auto">
         <Header/>
         {/* grow : content full 로 채우는 느낌 */}
-        <main className='grow bg-sky-400'>{children}</main>
+        {/* grow : flex 내부에서 100% */}
+        <main className='grow'>{children}</main>
         <Footer/>
       </body> 
     </html>
